@@ -1,0 +1,358 @@
+/* التنسيقات العامة */
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #ff6b6b;
+    --dark-color: #333;
+    --light-color: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* شاشة الاشتراك */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.modal-content p {
+    margin-bottom: 1.5rem;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.channel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.channel-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.channel-btn i {
+    margin-left: 8px;
+}
+
+.youtube {
+    background-color: #ff0000;
+}
+
+.telegram {
+    background-color: #0088cc;
+}
+
+.verification {
+    margin: 1.5rem 0;
+    text-align: right;
+}
+
+.verification label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+}
+
+#access-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Tajawal', sans-serif;
+}
+
+#access-btn:hover {
+    background-color: #3a5bed;
+}
+
+#access-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* الواجهة الرئيسية */
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    font-family: 'Tajawal', sans-serif;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+.container {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 992px) {
+    .editor-container {
+        flex-direction: row;
+    }
+}
+
+.canvas-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+#logo-canvas {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px dashed #ccc;
+    background-color: white;
+}
+
+.draggable {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+}
+
+#text-element {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0.5rem;
+    min-width: 50px;
+    min-height: 20px;
+    outline: none;
+    font-family: inherit;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+#image-element {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.tools-container {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+@media (min-width: 992px) {
+    .tools-container {
+        width: 350px;
+    }
+}
+
+.tool-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.tool-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tool-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.form-group input[type="text"],
+.form-group input[type="color"],
+.form-group input[type="range"],
+.form-group input[type="file"],
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.form-group input[type="range"] {
+    padding: 0;
+}
+
+.form-group select {
+    height: 40px;
+}
+
+optgroup {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: bold;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Tajawal', sans-serif;
+}
+
+button:hover {
+    background-color: #3a5bed;
+}
+
+button i {
+    margin-left: 5px;
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-family: 'Tajawal', sans-serif;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    font-family: 'Tajawal', sans-serif;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* تأثيرات الحركة */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
